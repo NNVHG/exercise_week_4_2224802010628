@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart'; // Chứa hàm compute
+import 'package:flutter/foundation.dart';
 
-// Hàm tính toán nặng chạy độc lập (phải nằm ngoài class hoặc là static)
 String calculateFactorial(int number) {
   BigInt result = BigInt.one;
   for (int i = 1; i <= number; i++) {
     result *= BigInt.from(i);
   }
-  // Rút gọn kết quả khi hiển thị vì chuỗi quá dài sẽ làm đơ UI
   String resString = result.toString();
-  return "Length of 30,000! is ${resString.length} digits.\nStarts with: ${resString.substring(0, 20)}...";
+  return "Độ dài của 30,000! là ${resString.length} chữ số.\nBắt đầu bằng: ${resString.substring(0, 20)}...";
 }
 
 class IsolateChallenge1 extends StatefulWidget {
@@ -21,15 +19,14 @@ class IsolateChallenge1 extends StatefulWidget {
 
 class _IsolateChallenge1State extends State<IsolateChallenge1> {
   bool _isLoading = false;
-  String _result = "Press compute to calculate 30,000!";
+  String _result = "Nhấn nút để tính giai thừa của 30,000!";
 
   Future<void> _startCalculation() async {
     setState(() {
       _isLoading = true;
-      _result = "Calculating in background isolate...";
+      _result = "Đang tính toán ngầm trên Isolate...";
     });
 
-    // Sử dụng compute để chạy trên Isolate riêng
     final String calculated = await compute(calculateFactorial, 30000);
 
     setState(() {
@@ -41,7 +38,7 @@ class _IsolateChallenge1State extends State<IsolateChallenge1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Isolate Factorial')),
+      appBar: AppBar(title: const Text('Đa luồng Tính Giai Thừa')),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -54,7 +51,7 @@ class _IsolateChallenge1State extends State<IsolateChallenge1> {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _isLoading ? null : _startCalculation,
-                child: const Text('Calculate 30,000!'),
+                child: const Text('Tính 30,000!'),
               ),
             ],
           ),

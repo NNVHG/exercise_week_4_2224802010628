@@ -13,7 +13,7 @@ class _SharedPreferencesScreenState extends State<SharedPreferencesScreen> {
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
 
-  String _displayData = "No data available";
+  String _displayData = "Chưa có dữ liệu nào";
 
   Future<void> _saveData() async {
     final prefs = await SharedPreferences.getInstance();
@@ -22,7 +22,7 @@ class _SharedPreferencesScreenState extends State<SharedPreferencesScreen> {
     await prefs.setString('email', _emailController.text);
     await prefs.setString('timestamp', DateTime.now().toString());
 
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Data Saved!')));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Đã lưu dữ liệu!')));
   }
 
   Future<void> _showData() async {
@@ -34,9 +34,9 @@ class _SharedPreferencesScreenState extends State<SharedPreferencesScreen> {
 
     setState(() {
       if (name != null && name.isNotEmpty) {
-        _displayData = "Name: $name\nAge: $age\nEmail: $email\nLast Saved: $timestamp";
+        _displayData = "Tên: $name\nTuổi: $age\nEmail: $email\nLưu lần cuối: $timestamp";
       } else {
-        _displayData = "No data available";
+        _displayData = "Chưa có dữ liệu nào";
       }
     });
   }
@@ -45,7 +45,7 @@ class _SharedPreferencesScreenState extends State<SharedPreferencesScreen> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
     setState(() {
-      _displayData = "No data available";
+      _displayData = "Chưa có dữ liệu nào";
       _nameController.clear();
       _ageController.clear();
       _emailController.clear();
@@ -55,21 +55,21 @@ class _SharedPreferencesScreenState extends State<SharedPreferencesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Shared Preferences')),
+      appBar: AppBar(title: const Text('Lưu trữ SharedPreferences')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(controller: _nameController, decoration: const InputDecoration(labelText: 'Name')),
-            TextField(controller: _ageController, decoration: const InputDecoration(labelText: 'Age'), keyboardType: TextInputType.number),
+            TextField(controller: _nameController, decoration: const InputDecoration(labelText: 'Họ và Tên')),
+            TextField(controller: _ageController, decoration: const InputDecoration(labelText: 'Tuổi'), keyboardType: TextInputType.number),
             TextField(controller: _emailController, decoration: const InputDecoration(labelText: 'Email')),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ElevatedButton(onPressed: _saveData, child: const Text('Save Name')),
-                ElevatedButton(onPressed: _showData, child: const Text('Show Name')),
-                ElevatedButton(onPressed: _clearData, style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent), child: const Text('Clear')),
+                ElevatedButton(onPressed: _saveData, child: const Text('Lưu Dữ Liệu')),
+                ElevatedButton(onPressed: _showData, child: const Text('Hiện Dữ Liệu')),
+                ElevatedButton(onPressed: _clearData, style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent), child: const Text('Xóa')),
               ],
             ),
             const SizedBox(height: 30),
