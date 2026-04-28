@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-// Import đúng file trong thư mục lib
-import 'list_view.dart';
-import 'grid_view.dart';
-import 'shared_preferences.dart';
-import 'async.dart';
+// Sửa lại tên import khớp chính xác với tên file trong thư mục lib
+import 'ListViewScreen.dart';
+import 'GridViewScreen.dart';
+import 'SharedPreferencesScreen.dart';
+import 'AsyncScreen.dart';
 import 'isolate_challenge_1.dart';
 
 void main() {

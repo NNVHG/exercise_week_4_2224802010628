@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-// 1. Đổi tên class để không bị trùng với tên thư viện
-class SharedPreferences extends StatefulWidget {
-  const SharedPreferences({super.key});
+class SharedPreferencesScreen extends StatefulWidget {
+  const SharedPreferencesScreen({super.key});
 
   @override
-  // 2. Gọi đúng tên class State đã được đổi tên ở bên dưới
-  State<SharedPreferences> createState() => _SharedPreferences();
+  State<SharedPreferencesScreen> createState() => _SharedPreferencesScreenState();
 }
 
-// 3. Đổi tên class State tương ứng
-class _SharedPreferences extends State<SharedPreferences> {
+class _SharedPreferencesScreenState extends State<SharedPreferencesScreen> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
@@ -19,7 +16,6 @@ class _SharedPreferences extends State<SharedPreferences> {
   String _displayData = "No data available";
 
   Future<void> _saveData() async {
-    // Lúc này SharedPreferences.getInstance() sẽ gọi đúng vào thư viện
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('name', _nameController.text);
     await prefs.setString('age', _ageController.text);
