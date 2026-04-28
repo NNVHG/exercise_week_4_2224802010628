@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 
-class Async extends StatefulWidget {
-  const Async({super.key});
+class AsyncScreen extends StatefulWidget {
+  const AsyncScreen({super.key});
 
   @override
-  State<Async> createState() => _AsyncState();
+  State<AsyncScreen> createState() => _AsyncScreenState();
 }
 
-class _AsyncExerciseState extends State<Async> {
+class _AsyncScreenState extends State<AsyncScreen> {
   String _statusMessage = "Press the button to load user.";
   bool _isLoading = false;
 
   Future<void> _loadUser() async {
     setState(() {
       _isLoading = true;
-      _statusMessage = "Loading user..."; // Hiển thị Loading user...
+      _statusMessage = "Loading user...";
     });
 
-    // Chờ 3 giây
     await Future.delayed(const Duration(seconds: 3));
 
     setState(() {
       _isLoading = false;
-      _statusMessage = "User loaded successfully!"; // Cập nhật trạng thái
+      _statusMessage = "User loaded successfully!";
     });
   }
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// Import đúng tên các tệp đã được đổi
+// Import đúng file trong thư mục lib
 import 'list_view.dart';
 import 'grid_view.dart';
 import 'shared_preferences.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Exercise Week 4',
+      title: 'Week 4',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         useMaterial3: true,
@@ -47,37 +47,37 @@ class HomePage extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ListViewExercise()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const ListViewScreen()));
                 },
-                child: const Text('Exercise 1: List View'),
+                child: const Text('1: List View'),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const GridViewExercise()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const GridViewScreen()));
                 },
-                child: const Text('Exercise 2: Grid View'),
+                child: const Text('2: Grid View'),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SharedPreferences()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SharedPreferencesScreen()));
                 },
-                child: const Text('Exercise 3: Shared Preferences'),
+                child: const Text('3: Shared Preferences'),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const Async()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const AsyncScreen()));
                 },
-                child: const Text('Exercise 4: Asynchronous'),
+                child: const Text('4: Asynchronous'),
               ),
               const SizedBox(height: 16),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => const IsolateChallenge1()));
                 },
-                child: const Text('Exercise 5: Isolate (Challenge 1)'),
+                child: const Text('5: Isolate (Challenge 1)'),
               ),
             ],
           ),
