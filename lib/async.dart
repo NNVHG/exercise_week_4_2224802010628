@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AsyncExercise extends StatefulWidget {
-  const AsyncExercise({super.key});
+class Async extends StatefulWidget {
+  const Async({super.key});
 
   @override
-  State<AsyncExercise> createState() => _AsyncExerciseState();
+  State<Async> createState() => _AsyncState();
 }
 
-class _AsyncExerciseState extends State<AsyncExercise> {
+class _AsyncExerciseState extends State<Async> {
   String _statusMessage = "Press the button to load user.";
   bool _isLoading = false;
 

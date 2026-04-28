@@ -23,7 +23,7 @@ class GridViewExercise extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Grid View Exercise')),
+      appBar: AppBar(title: const Text('Grid View')),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
